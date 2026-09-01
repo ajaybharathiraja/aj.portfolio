@@ -4,6 +4,7 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { DockWrapper } from "./DockWrapper";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -30,46 +31,9 @@ export function Navbar() {
           Ajay R<span className="text-accent">.</span>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
-          {mounted && (
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-muted transition-colors"
-              aria-label="Toggle Theme"
-            >
-              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-          )}
-        </nav>
-
-        {/* Mobile Nav Toggle */}
-        <div className="flex items-center gap-4 md:hidden">
-          {mounted && (
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-muted transition-colors"
-              aria-label="Toggle Theme"
-            >
-              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-          )}
-          <button
-            onClick={toggleMobileMenu}
-            className="p-2 rounded-md hover:bg-muted transition-colors"
-            aria-label="Toggle Menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+        {/* Dock Nav */}
+        <div className="flex items-center">
+          <DockWrapper />
         </div>
       </div>
 

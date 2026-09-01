@@ -8,6 +8,7 @@ import { Certifications } from "@/components/Certifications";
 import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { DockWrapper } from "@/components/DockWrapper";
 
 export default function Home() {
   return (
